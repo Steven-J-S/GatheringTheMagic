@@ -42,6 +42,12 @@ class Player:
                 self.hand.cards.append(self.library.cards[idx])
                 del self.library.cards[idx]
 
+    def cast(self):
+        """Main logic to cast a card"""
+        # Pick a card from hand: input
+        # Play this card to territory if creature or land, else: pass (for now)
+        pass
+
     def redraw_hand(self):
         """Draw a new hand"""
         # Count redraws: 1 card less is drawn at every redraw
@@ -53,10 +59,6 @@ class Player:
 
     def receive_damage(self, value):
         """Main logic to damage player"""
-        pass
-
-    def cast(self):
-        """Main logic to cast a card"""
         pass
 
     def use_ability(self):
