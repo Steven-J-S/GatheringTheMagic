@@ -45,8 +45,19 @@ class Player:
     def cast(self):
         """Main logic to cast a card"""
         # Pick a card from hand: input
+        print('Pick a card from your hand:')
+        for c in range(self.hand.count):
+            print('[' + str(c) + '] '+str(self.hand.cards[c].name))
+        card_idx = None
+        print(self.hand.count)
+        while card_idx not in range(self.hand.count):
+            card_idx = int(input('Card: '))
         # Play this card to territory if creature or land, else: pass (for now)
-        pass
+        if self.hand.cards[card_idx].types[0] == 'Creature' or self.hand.cards[card_idx].types[0] == 'Land':
+            self.territory.cards.append(self.hand.cards[card_idx])
+            del self.hand.cards[card_idx]
+        else:
+            pass
 
     def redraw_hand(self):
         """Draw a new hand"""

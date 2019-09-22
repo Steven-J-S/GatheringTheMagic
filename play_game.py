@@ -22,7 +22,7 @@ Source for turn structure: https://mtg.gamepedia.com/Turn_structure
 """
 
 import json
-import gameutils
+import gameutils as gu
 from itertools import cycle
 from player import Player
 from stack import Stack
@@ -40,15 +40,14 @@ def start_application():
 
 def run_game(n_players):
     """Main logic to run the game"""
-
     # Initialize players
     players = {}
     for i in range(n_players):
         name = str(input('Input name for player {}...\n'.format(str(i+1))))
         choice = input('Pick a deck for player {}...\n'.format(str(i+1)))
-        with open('Decks/'+choice+'.json', 'r', encoding='utf-8-sig') as f:
-            deck = json.load(f)
-        value = Player(name, deck['mainBoard'])
+        deck_json = gu.load_deck(choice)
+        deck = gu.build_deck(deck_json)
+        value = Player(name, deck)
         key = 'Player_{}'.format(str(i+1))
         players[key] = value
     print('Players:\n')
@@ -70,16 +69,16 @@ def run_game(n_players):
 
 def game_round(players, battlefield):
     for k in cycle(players):
-        print('It is {}\'s turn:'.format(players[k].name))
         game_turn(players, k, battlefield)
 
 
 def game_turn(players, k, battlefield):
+    print('It is {}\'s turn:'.format(players[k].name))
     begin_phase(players[k])
     main_phase(players[k])
     choice = ''
     while choice != 'y' and choice != 'n':
-        str(input('Enter combat phase? y/n\n'))
+        choice = str(input('Enter combat phase? y/n\n'))
     if choice == 'y':
         combat_phase(players[k], battlefield)
         main_phase(players[k]) # (if combat phase is played)
@@ -92,15 +91,30 @@ def game_turn(players, k, battlefield):
 
 def begin_phase(player):
     player.territory.untap()
-    player.library.take()
+    player.take()
 
 
 def main_phase(player):
+    print('Main phase')
     player.cast()
     player.use_ability()
+    '''
+    print('Main phase')
+    choice = ''
+    while choice != 'c' or 'p'
+        choice = str(input('cast/pass'))
+    if choice == 'c'
+        card_idx = None
+    while card_idx != in range(player.hand.count)
+        card_idx = int(input('pick card idx'))
+    player.cast(card_idx)
+    else:
+    pass
+    '''
 
 
 def combat_phase(player, battlefield):
+    print('Combat phase')
     # Add logic to leave combat phase
     # Choose target
     # Choose attackers (cards)
@@ -109,6 +123,17 @@ def combat_phase(player, battlefield):
     battlefield.resolve()
     pass
 
+    '''
+    print('Combat phase')
+    print(players)
+    target = input('Pick a target')
+    attackers = input('Pick attackers')
+    # pick attackers from list, confirm
+    blockers = input('Pick blockers')
+    # pick blockers from list, pick which attackers they will block, confirm
+    # print setup
+    # resolve
+    '''
 
 def end_phase(player):
     # End turn
