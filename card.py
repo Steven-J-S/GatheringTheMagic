@@ -14,29 +14,8 @@ class Card:
         self.type = obj['type']
         self.types = obj['types']
         self.tapped = True
-        # Make these subclasses
-        if obj['types'][0] == 'Land':
-            # self.flavorText = None
-            self.manaCost = None
-            self.convertedManaCost = None
-            self.power = None
-            self.toughness = None
-            self.summoningSickness = None
-        elif obj['types'][0] == 'Creature':
-            # self.flavorText = obj['flavorText']
-            self.manaCost = obj['manaCost']
-            self.convertedManaCost = obj['convertedManaCost']
-            self.power = obj['power']
-            self.toughness = obj['toughness']
-            self.summoningSickness = True
-        elif obj['types'][0] == 'Instant' or obj['types'][0] == 'Sorcery':
-            # self.flavorText = obj['flavorText']
-            self.manaCost = obj['manaCost']
-            self.convertedManaCost = obj['convertedManaCost']
-            self.power = None
-            self.toughness = None
-            self.summoningSickness = True
 
+    @property
     def info(self):
         """Logic to show all info of this card"""
         pass

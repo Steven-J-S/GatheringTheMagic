@@ -49,7 +49,6 @@ class Player:
         for c in range(self.hand.count):
             print('[' + str(c) + '] '+str(self.hand.cards[c].name))
         card_idx = None
-        print(self.hand.count)
         while card_idx not in range(self.hand.count):
             card_idx = int(input('Card: '))
         # Play this card to territory if creature or land, else: pass (for now)

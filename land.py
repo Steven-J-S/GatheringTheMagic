@@ -1,7 +1,6 @@
 """
 This module contains the land class
 
-todo: add logic to untap land
 todo: add logic to choose which land to tap
 """
 

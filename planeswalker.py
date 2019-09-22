@@ -2,10 +2,13 @@
 This module contains the planeswalker class
 """
 
+from card import Card
 
-class Planeswalker:
+
+class PlanesWalker(Card):
     """Class to represent planeswalker"""
-    def __int__(self):
+    def __int__(self, obj):
+        Card.__init__(self, obj)
         self.hit_points = 0
         self.abilities = list()
 

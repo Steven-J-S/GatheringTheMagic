@@ -6,6 +6,10 @@ todo: move play() and cast() functions to player?
 
 import json
 from card import Card
+from creature import Creature
+from land import Land
+from instant import Instant
+from sorcery import Sorcery
 
 
 def load_deck(file):
@@ -19,9 +23,19 @@ def build_deck(lst):
     """Logic to build deck into list of card objects"""
     deck = []
     for c in lst:
-        card = Card(c)
+        if c['types'][0] == 'Creature': card = Creature(c)
+        elif c['types'][0] == 'Land': card = Land(c)
+        elif c['types'][0] == 'Instant': card = Instant(c)
+        elif c['types'][0] == 'Sorcery': card = Sorcery(c)
+        # Add more card types
+        else: card = Card(c)
         deck.append(card)
     return deck
+
+
+def clear_command_line():
+    """Logic to clear the command line"""
+    pass
 
 
 def check_health(obj):
