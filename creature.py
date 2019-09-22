@@ -1,17 +1,17 @@
 """
-This module contains the instant class
+This module contains the Creature class
 """
 
 from card import Card
 
 
-class Instant(Card):
-    """Class to represent an instant card"""
+class Creature(Card):
+    """Class to represent a creature card"""
     def __init__(self, obj):
         Card.__init__(self, obj)
         # self.flavorText = obj['flavorText']
         self.manaCost = obj['manaCost']
         self.convertedManaCost = obj['convertedManaCost']
-        self.power = None
-        self.toughness = None
+        self.power = obj['power']
+        self.toughness = obj['toughness']
         self.summoningSickness = True

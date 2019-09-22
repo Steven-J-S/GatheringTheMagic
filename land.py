@@ -5,18 +5,16 @@ todo: add logic to untap land
 todo: add logic to choose which land to tap
 """
 
+from card import Card
 
-class Land:
+
+class Land(Card):
     """Class to represent land instances"""
-    def __init__(self):
-        self.type = None
-        self.mana = 1
-        self.tapped = True
-
-    def info(self):
-        """Show the info of instance"""
-        pass
-
-    def untap(self):
-        """Main logic to untap land"""
-        pass
+    def __init__(self, obj):
+        Card.__init__(self, obj)
+        # self.flavorText = None
+        self.manaCost = None
+        self.convertedManaCost = None
+        self.power = None
+        self.toughness = None
+        self.summoningSickness = None
