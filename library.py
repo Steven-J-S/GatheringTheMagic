@@ -23,3 +23,6 @@ class Library(Deck):
 
     def shuffle(self):
         shuffle(self.cards)
+
+    def add(self, cards):
+        self.cards.append(cards)
