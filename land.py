@@ -12,8 +12,19 @@ class Land(Card):
     def __init__(self, obj):
         Card.__init__(self, obj)
         # self.flavorText = None
-        self.manaCost = None
-        self.convertedManaCost = None
-        self.power = None
-        self.toughness = None
-        self.summoningSickness = None
+
+    @property
+    def manatype(self):
+        if self.subtypes[0] == 'Plains':
+            manatype = 'W'
+        elif self.subtypes[0] == 'Island':
+            manatype = 'U'
+        elif self.subtypes[0] == 'Swamp':
+            manatype = 'B'
+        elif self.subtypes[0] == 'Mountain':
+            manatype = 'R'
+        elif self.subtypes[0] == 'Forest':
+            manatype = 'G'
+        elif self.subtypes[0] == 'Wastes':
+            manatype = None
+        return manatype

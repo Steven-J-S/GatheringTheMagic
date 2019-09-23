@@ -33,6 +33,7 @@ def start_application():
     """Main logic to start application: menu, options etc."""
     """Run menu options then run game"""
     n_players = int(input('How many players?\n'))
+    gu.clear_command_line()
     """Check number of players"""
     """Pass options to run_game()"""
     run_game(n_players)
@@ -73,6 +74,7 @@ def game_round(players, battlefield):
 
 
 def game_turn(players, k, battlefield):
+    gu.clear_command_line()
     print('It is {}\'s turn:'.format(players[k].name))
     begin_phase(players[k])
     main_phase(players[k])
@@ -134,6 +136,7 @@ def combat_phase(player, battlefield):
     # print setup
     # resolve
     '''
+
 
 def end_phase(player):
     # End turn

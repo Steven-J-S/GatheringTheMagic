@@ -10,9 +10,10 @@ class Card:
     """"Represents the Card class"""
     def __init__(self, obj):
         self.name = obj['name']
-        self.text = obj['text']
+        # self.text = obj['text']
         self.type = obj['type']
         self.types = obj['types']
+        self.subtypes = obj['subtypes']
         self.tapped = True
 
     @property

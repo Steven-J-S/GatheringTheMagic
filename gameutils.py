@@ -5,6 +5,7 @@ todo: move play() and cast() functions to player?
 """
 
 import json
+import os
 from card import Card
 from creature import Creature
 from land import Land
@@ -34,8 +35,7 @@ def build_deck(lst):
 
 
 def clear_command_line():
-    """Logic to clear the command line"""
-    pass
+    os.system('cls')
 
 
 def check_health(obj):
