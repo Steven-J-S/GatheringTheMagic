@@ -2,7 +2,7 @@
 This module contains the hand class
 """
 
-from deck import Deck
+from game.deck import Deck
 
 
 class Hand(Deck):

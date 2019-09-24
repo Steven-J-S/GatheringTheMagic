@@ -1,17 +1,17 @@
 """
-This module contains the Creature class
+This module contains the sorcery class
 """
 
-from card import Card
+from game.card import Card
 
 
-class Creature(Card):
-    """Class to represent a creature card"""
+class Sorcery(Card):
+    """Class to represent a sorcery type card"""
     def __init__(self, obj):
         Card.__init__(self, obj)
         # self.flavorText = obj['flavorText']
         self.manaCost = obj['manaCost']
         self.convertedManaCost = obj['convertedManaCost']
-        self.power = obj['power']
-        self.toughness = obj['toughness']
+        self.power = None
+        self.toughness = None
         self.summoningSickness = True

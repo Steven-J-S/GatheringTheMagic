@@ -4,7 +4,7 @@ This module contains the graveyard class
 todo: add logic for pick() function; copy from deck Class
 """
 
-from deck import Deck
+from game.deck import Deck
 
 
 class Graveyard(Deck):

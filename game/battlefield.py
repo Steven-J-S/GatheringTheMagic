@@ -9,7 +9,7 @@ todo: add battlefield sections (subclasses?): territories (friendly), battlegrou
 todo: make battlefield contain all others (stack, territories, etc.)
 """
 
-from deck import Deck
+from game.deck import Deck
 
 
 class Battlefield:

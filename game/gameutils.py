@@ -6,11 +6,11 @@ todo: move play() and cast() functions to player?
 
 import json
 import os
-from card import Card
-from creature import Creature
-from land import Land
-from instant import Instant
-from sorcery import Sorcery
+from game.card import Card
+from game.creature import Creature
+from game.land import Land
+from game.instant import Instant
+from game.sorcery import Sorcery
 
 
 def load_deck(file):

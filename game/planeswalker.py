@@ -2,7 +2,7 @@
 This module contains the planeswalker class
 """
 
-from card import Card
+from game.card import Card
 
 
 class PlanesWalker(Card):

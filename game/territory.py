@@ -2,7 +2,7 @@
 This module contains the Territory subclass, subclass of deck superclass
 """
 
-from deck import Deck
+from game.deck import Deck
 
 
 class Territory(Deck):

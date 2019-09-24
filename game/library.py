@@ -10,7 +10,7 @@ todo: make a deck type superclass for deck and graveyard and exile and hand
 todo: add logic in put() function to put anywhere in the deck (top, bottom)
 """
 
-from deck import Deck
+from game.deck import Deck
 from random import shuffle
 
 

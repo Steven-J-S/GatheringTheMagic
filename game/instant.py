@@ -2,7 +2,7 @@
 This module contains the instant class
 """
 
-from card import Card
+from game.card import Card
 
 
 class Instant(Card):

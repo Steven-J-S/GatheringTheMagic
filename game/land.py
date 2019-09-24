@@ -4,7 +4,7 @@ This module contains the land class
 todo: add logic to choose which land to tap
 """
 
-from card import Card
+from game.card import Card
 
 
 class Land(Card):

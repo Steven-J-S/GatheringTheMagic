@@ -11,10 +11,10 @@ todo: add upkeep functionality
 todo: if library is empty and player has to draw card, he loses
 """
 
-from library import Library
-from hand import Hand
-from graveyard import Graveyard
-from territory import Territory
+from game.library import Library
+from game.hand import Hand
+from game.graveyard import Graveyard
+from game.territory import Territory
 from random import randint
 
 
