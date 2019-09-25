@@ -20,6 +20,13 @@ def load_deck(file):
     return deck['mainBoard']
 
 
+def load_cards():
+    """Main logic to load all cards"""
+    with open('Cards/AllCards.json', 'r', encoding='utf-8-sig') as f:
+        cards = json.load(f)
+    return cards
+
+
 def build_deck(lst):
     """Logic to build deck into list of card objects"""
     deck = []

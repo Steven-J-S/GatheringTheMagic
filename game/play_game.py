@@ -3,8 +3,6 @@ This module contains the main code to play a game of Gathering the Magic
 
 todo: menu, aantal players, welke deck (pick a deck option maken), start!
 todo: list possible actions, attack, cast, play card
-todo: game opdelen in beurten (game -> round -> turn -> phases -> steps)
-todo: phase opdelen: begin -> main phase -> combat -> main phase -> end
 todo: begin; apply mandatory actions; untap, draw card, upkeep
 todo: main phase; list actions
 todo: combat; list actions
@@ -12,7 +10,6 @@ todo: end; apply ending logic
 todo: while player.hit_points>0 toevoegen, anders verloren!
 todo: player input toevoegen voor kaart keuze of mana keuze
 todo: add timer for options (instants) that can be cast at any time
-todo: make play_game a class
 todo: split application and gameplay into seperate classes
 todo: if player.health=<0 remove from players, if len(players)==1 end game
 todo: add round and turn counter
@@ -65,7 +62,7 @@ class GatheringTheMagic:
             print(self.players[k].name)
 
         # Loop game rounds as long as players are in the game
-        while self.n_players > 1:
+        while self.n_players > 1:  # <-------------------------------- Change check to turn base NOT round base
             self.game_round()
         else:
             self.end_game()
@@ -75,7 +72,7 @@ class GatheringTheMagic:
             self.game_turn(k)
 
     def game_turn(self, k):
-        #gu.clear_command_line()
+        gu.clear_command_line()
         print('It is {}\'s turn:'.format(self.players[k].name))
         self.begin_phase(k)
         self.main_phase(k)
