@@ -41,6 +41,11 @@ def build_deck(lst):
     return deck
 
 
+def print_bold(text):
+    """Logic to print text in bold"""
+    print('\033[1m' + str(text) + '\033[0m')
+
+
 def clear_command_line():
     os.system('cls')
 

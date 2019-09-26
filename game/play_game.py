@@ -71,7 +71,7 @@ class GatheringTheMagic:
 
     def game_turn(self, k):
         gu.clear_command_line()
-        print('It is {}\'s turn:'.format(self.players[k].name))
+        gu.print_bold('It is {}\'s turn:'.format(self.players[k].name))
         self.begin_phase(k)
         self.main_phase(k)
         choice = ''
@@ -79,7 +79,7 @@ class GatheringTheMagic:
             choice = str(input('Enter combat phase? y/n\n'))
         if choice == 'y':
             self.combat_phase(self, k)
-            self.main_phase(k) # (if combat phase is played)
+            self.main_phase(k)
         self.end_phase(k)
         # Check player.health
         for k in self.players:
@@ -91,7 +91,7 @@ class GatheringTheMagic:
         self.players[k].take()
 
     def main_phase(self, k):
-        print('Main phase')
+        gu.print_bold('Main phase')
         self.players[k].cast()
         self.players[k].use_ability()
         '''
@@ -109,7 +109,7 @@ class GatheringTheMagic:
         '''
 
     def combat_phase(self, k):
-        print('Combat phase')
+        gu.print_bold('Combat phase')
         # Add logic to leave combat phase
         # Choose target
         # Choose attackers (cards)

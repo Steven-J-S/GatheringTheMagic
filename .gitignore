@@ -4,3 +4,4 @@
 /.idea
 /__pycache__
 /game/__pycache__
+*.pyc
