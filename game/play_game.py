@@ -74,7 +74,7 @@ class GatheringTheMagic:
             self.game_turn(k)
             # Check player.health
             for k in self.players:
-                if self.players[k].health <= 0:
+                if self.players[k].life <= 0:
                     del self.players[k]
             # Check number of players in game
             if self.n_players <= 1:

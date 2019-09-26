@@ -22,7 +22,7 @@ class Player:
     """Class to represent a player"""
     def __init__(self, name, deck):
         self.name = name
-        self.health = 20
+        self.life = 20
         self.library = Library(deck)
         self.hand = Hand()
         self.take(amt=7, top=False)

@@ -77,7 +77,6 @@ def search_card(cards):
     return card
 
 
-
 def print_bold(text):
     """Logic to print text in bold"""
     print('\033[1m' + str(text) + '\033[0m')
@@ -85,6 +84,20 @@ def print_bold(text):
 
 def clear_command_line():
     os.system('cls')
+
+
+def print_border():
+    print('-'*79)
+
+
+def print_territory(player):
+    print_bold(player.name+'\'s territory')
+    second_line = 'Life: {}  Cards: {}  Deck: {}  Graveyard: {}'.format(player.life, player.territory.count,
+                                                                        player.library.count, player.graveyard.count)
+    print(second_line)
+    for l in range(10):
+        for c in player.territory.cards:
+            print('_'*20)
 
 
 def check_health(obj):
