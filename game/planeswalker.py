@@ -16,3 +16,7 @@ class PlanesWalker(Card):
         """Main logic to use one of the abilities"""
         pass
 
+    def info(self):
+        """Show info of cards"""
+        pass
+

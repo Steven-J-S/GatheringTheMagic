@@ -15,3 +15,7 @@ class Creature(Card):
         self.power = obj['power']
         self.toughness = obj['toughness']
         self.summoningSickness = True
+
+    def info(self):
+        """Show info of card"""
+        pass

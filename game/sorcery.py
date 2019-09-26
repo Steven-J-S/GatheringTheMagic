@@ -15,3 +15,7 @@ class Sorcery(Card):
         self.power = None
         self.toughness = None
         self.summoningSickness = True
+
+    def info(self):
+        """Show info of card"""
+        pass

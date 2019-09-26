@@ -28,3 +28,7 @@ class Land(Card):
         elif self.subtypes[0] == 'Wastes':
             manatype = None
         return manatype
+
+    def info(self):
+        """Show infor of card"""
+        pass

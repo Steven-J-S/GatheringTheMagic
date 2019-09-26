@@ -1,8 +1,8 @@
 GUI
 - Show territories
 - Show battlefield
-- Show and of current player
+- Show amount of current player
 - Show number of cards in hand of opponent
 
 GAMEPLAY
-- Add Combat
+- Add basic combat system

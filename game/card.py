@@ -5,8 +5,10 @@ todo: convert to superclass
 todo: implement subclasses
 """
 
+from abc import ABCMeta, abstractmethod
 
-class Card:
+
+class Card(metaclass=ABCMeta):
     """"Represents the Card class"""
     def __init__(self, obj):
         self.name = obj['name']
@@ -16,7 +18,7 @@ class Card:
         self.subtypes = obj['subtypes']
         self.tapped = True
 
-    @property
+    @abstractmethod
     def info(self):
         """Logic to show all info of this card"""
         pass
