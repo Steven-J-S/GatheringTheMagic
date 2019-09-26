@@ -51,9 +51,15 @@ class GatheringTheMagic:
         # Initialize players
         for i in range(n):
             name = str(input('Input name for player {}...\n'.format(str(i+1))))
-            choice = input('Pick a deck for player {}...\n'.format(str(i+1)))
-            deck_json = gu.load_deck(choice)
-            deck = gu.make_deck(deck_json)
+            pick_or_build = None
+            while pick_or_build != 'p' or pick_or_build != 'b':
+                pick_or_build = str(input('Pick or build a deck for player {}: p/b\n'.format(str(i+1))))
+            if pick_or_build == 'p':
+                choice = str(input('Pick a deck for player {}...\n'.format(str(i+1))))
+                deck_json = gu.load_deck(choice)
+                deck = gu.make_deck(deck_json)
+            elif pick_or_build == 'b':
+                deck = gu.build_deck()
             value = Player(name, deck)
             key = 'Player_{}'.format(str(i+1))
             self.players[key] = value
