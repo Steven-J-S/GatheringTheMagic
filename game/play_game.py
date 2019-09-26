@@ -60,16 +60,14 @@ class GatheringTheMagic:
         print('Players:')
         for k in self.players:
             print(self.players[k].name)
-
         # Loop game rounds as long as players are in the game
-        while self.n_players > 1:  # <-------------------------------- Change check to turn base NOT round base
-            self.game_round()
-        else:
-            self.end_game()
+        self.game_round()
 
     def game_round(self):
         for k in cycle(self.players):
             self.game_turn(k)
+            if self.n_players <= 1:
+                self.end_game()
 
     def game_turn(self, k):
         gu.clear_command_line()
