@@ -48,7 +48,7 @@ def build_deck():
     lst = list()
     choice = None
     while choice != 'q':
-        choice = str(input('Pick a card to add to deck: (input: q to quit, s to search)'))
+        choice = str(input('Pick a card to add to deck (input: name of card, q to quit, s to search): '))
         if choice == 'q':
             break
         elif choice == 's':
@@ -68,11 +68,11 @@ def search_card(cards):
     keys = list(cards.keys())
     choice = 's'
     while choice == 's':
-        search = str(input('Search card containing in title: ...'))
+        search = str(input('Search card containing in title: '))
         for k in keys:
             if search in k:
                 print(k)
-        choice = str(input('Pick a card from list: (enter s to search again)'))
+        choice = str(input('Pick a card from list (enter s to search again): '))
     card = cards[choice]
     return card
 

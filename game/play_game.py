@@ -52,7 +52,7 @@ class GatheringTheMagic:
         for i in range(n):
             name = str(input('Input name for player {}...\n'.format(str(i+1))))
             pick_or_build = None
-            while pick_or_build != 'p' or pick_or_build != 'b':
+            while pick_or_build != 'p' and pick_or_build != 'b':
                 pick_or_build = str(input('Pick or build a deck for player {}: p/b\n'.format(str(i+1))))
             if pick_or_build == 'p':
                 choice = str(input('Pick a deck for player {}...\n'.format(str(i+1))))
