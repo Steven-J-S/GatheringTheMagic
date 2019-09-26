@@ -27,9 +27,9 @@ def load_cards():
     return cards
 
 
-def build_deck(lst):
+def make_deck(lst):
     """Logic to build deck into list of card objects"""
-    deck = []
+    deck = list()
     for c in lst:
         if c['types'][0] == 'Creature': card = Creature(c)
         elif c['types'][0] == 'Land': card = Land(c)
@@ -39,6 +39,43 @@ def build_deck(lst):
         else: card = Card(c)
         deck.append(card)
     return deck
+
+
+def build_deck():
+    """Logic to build a deck from cards"""
+    clear_command_line()
+    cards = load_cards()
+    lst = list()
+    choice = None
+    while choice != 'q':
+        choice = str(input('Pick a card to add to deck: (input: q to quit, s to search)'))
+        if choice == 'q':
+            break
+        elif choice == 's':
+            card = search_card(cards)
+        else:
+            card = cards[choice]
+        amount = int(input('How many copies do you want to add to deck: '))
+        for i in range(amount):
+            lst.append(card)
+        clear_command_line()
+    deck = make_deck(lst)
+    return deck
+
+
+def search_card(cards):
+    """Logic to search card"""
+    keys = list(cards.keys())
+    choice = 's'
+    while choice == 's':
+        search = str(input('Search card containing in title: ...'))
+        for k in keys:
+            if search in k:
+                print(k)
+        choice = str(input('Pick a card from list: (enter s to search again)'))
+    card = cards[choice]
+    return card
+
 
 
 def print_bold(text):

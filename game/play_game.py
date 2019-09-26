@@ -53,7 +53,7 @@ class GatheringTheMagic:
             name = str(input('Input name for player {}...\n'.format(str(i+1))))
             choice = input('Pick a deck for player {}...\n'.format(str(i+1)))
             deck_json = gu.load_deck(choice)
-            deck = gu.build_deck(deck_json)
+            deck = gu.make_deck(deck_json)
             value = Player(name, deck)
             key = 'Player_{}'.format(str(i+1))
             self.players[key] = value
@@ -66,6 +66,11 @@ class GatheringTheMagic:
     def game_round(self):
         for k in cycle(self.players):
             self.game_turn(k)
+            # Check player.health
+            for k in self.players:
+                if self.players[k].health <= 0:
+                    del self.players[k]
+            # Check number of players in game
             if self.n_players <= 1:
                 self.end_game()
 
@@ -81,10 +86,6 @@ class GatheringTheMagic:
             self.combat_phase(self, k)
             self.main_phase(k)
         self.end_phase(k)
-        # Check player.health
-        for k in self.players:
-            if self.players[k].health <= 0:
-                del self.players[k]
 
     def begin_phase(self, k):
         self.players[k].territory.untap()
