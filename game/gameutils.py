@@ -83,21 +83,70 @@ def print_bold(text):
 
 
 def clear_command_line():
+    """Logic to clear the command line"""
     os.system('cls')
 
 
 def print_border():
-    print('-'*79)
+    """Logic to print line border"""
+    print('-'*150)
+
+
+def print_separator():
+    """Logic to separate territories with spaces"""
+    print('\n')
 
 
 def print_territory(player):
+    # Print basic info of player
     print_bold(player.name+'\'s territory')
-    second_line = 'Life: {}  Cards: {}  Deck: {}  Graveyard: {}'.format(player.life, player.territory.count,
+    second_line = 'Life: {}  Cards: {}  Deck: {}  Graveyard: {}'.format(player.life, player.hand.count,
                                                                         player.library.count, player.graveyard.count)
     print(second_line)
-    for l in range(10):
-        for c in player.territory.cards:
-            print('_'*20)
+    # Print land info
+    print_lands(player)
+    # Print info on non-land permanents
+    print_nonlands(player)
+
+
+def print_lands(player):
+    """Logic to print lands of player"""
+    print_bold('Lands')
+    lands = dict()
+    tap = dict()
+    for c in player.territory.cards:
+        if c.types[0] == 'Land' and c.name not in lands:
+            lands[c.name] = 1
+        elif c.types[0] == 'Land' and c.name in lands:
+            lands[c.name] += 1
+    for k, v in lands.items():
+        print(str(k)+':'+str(v), end=' ')
+    print('')
+
+
+def print_nonlands(player):
+    """Logic to print non-land permanents of player"""
+    print_bold('Non-land permanents')
+    permanents = list()
+    for c in player.territory.cards:
+        if c.types[0] != 'Land':
+            permanents.append(c.info())
+    if len(permanents) < 1:
+        pass
+    elif len(permanents) == 1:
+        for i in permanents[0]:
+            print(i)
+    else:
+        for i in zip(*permanents):
+            for j in i:
+                print(j, end=' ')
+            print('')
+
+
+def print_battlefield(players):
+    for n, p in players.items():
+        print_territory(p)
+        print_separator()
 
 
 def check_health(obj):

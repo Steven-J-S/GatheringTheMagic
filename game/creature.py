@@ -20,12 +20,12 @@ class Creature(Card):
         """Show info of card"""
         info = [
             ' _' + '_' * 18 + '_ ',
-            '|' + self.name + ' ' * (18 - len(self.name)) + '|',
-            '|' + self.manaCost + ' ' * (18 - len(self.manaCost)) + '|',
-            '|' + self.type + ' ' * (18 - len(self.type)) + '|',
-            '|' + self.power + '/' + self.toughness + ' ' * (17 - len(self.power) - len(self.toughness)) + '|',
-            '| Tapped: ' + str(self.tapped) + ' ' * (9 - len(str(self.tapped))) + '|',
-            '| SumSick: ' + self.type + ' ' * (8 - len(self.type)) + '|',
+            '|\033[1m' + self.name + ' '*(20 - len(self.name)) + '\033[0m|',
+            '|' + self.manaCost + ' '*(20 - len(self.manaCost)) + '|',
+            '|\033[1m' + self.type + ' '*(20 - len(self.type)) + '\033[0m|',
+            '|' + self.power + '/' + self.toughness + ' '*(19 - len(self.power) - len(self.toughness)) + '|',
+            '|Tapped: ' + str(self.tapped) + ' '*(12 - len(str(self.tapped))) + '|',
+            '|SumSick: ' + str(self.summoningSickness) + ' '*(11 - len(str(self.summoningSickness))) + '|',
             '|_' + '_' * 18 + '_|'
         ]
         return info

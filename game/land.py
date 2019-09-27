@@ -30,5 +30,5 @@ class Land(Card):
         return manatype
 
     def info(self):
-        """Show infor of card"""
+        """Show info of card"""
         pass

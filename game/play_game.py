@@ -83,6 +83,9 @@ class GatheringTheMagic:
     def game_turn(self, k):
         gu.clear_command_line()
         gu.print_bold('It is {}\'s turn:'.format(self.players[k].name))
+        gu.print_border()
+        gu.print_battlefield(self.players)
+        gu.print_border()
         self.begin_phase(k)
         self.main_phase(k)
         choice = ''
